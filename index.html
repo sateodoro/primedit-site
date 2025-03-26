@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="DESCRIPTION META TAG">
+  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
+  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
+  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+
+  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>PRIMEdit: Probability Redistribution for Instance-aware Multi-Object Video Editing with Benchmark Dataset</title>
+  <link rel="icon" type="image/x-icon" href="static/images/truck-icon.svg">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">
+<!--              <img src="static/images/truck-icon.gif" alt="Logo" style="vertical-align: text-bottom; height: 75px">-->
+              <img src="static/images/truck-icon.gif" alt="Logo" style="vertical-align: text-bottom; height: 80px; margin-right: -15px">
+              PRIMEdit: <u>P</u>robability <u>R</u>edistribution for <br/> <u>I</u>nstance-aware <u>M</u>ulti-object Video <u>Edit</u>ing <br/> with Benchmark Dataset
+            </h1>
+            <h1 style="margin-top: -10px;">
+              (Previous version: MIVE: New Design and Benchmark for Multi-Instance Video Editing)
+            </h1>
+            <div class="is-size-5 publication-authors" style="margin-top: 10px;">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a target="_blank" rel="noopener noreferrer" href="https://scholar.google.com/citations?user=-W-_ROYAAAAJ&hl=en">Samuel Teodoro</a><sup>*,<img src="./static/images/kaist_aff.png" width="27"></sup>&nbsp;&nbsp;</span>
+              <span class="author-block">
+                <a target="_blank" rel="noopener noreferrer" href="https://agusgun.github.io">Agus Gunawan</a><sup>*,<img src="./static/images/kaist_aff.png" width="27"></sup>&nbsp;&nbsp;</span>
+              <span class="author-block">
+                <a target="_blank" rel="noopener noreferrer" href="https://sites.google.com/view/sooyekim">Soo Ye Kim</a><sup><img src="./static/images/adobe.png" width="20"></sup>&nbsp;&nbsp;</span>
+              <span class="author-block">
+                <a target="_blank" rel="noopener noreferrer" href="https://sites.google.com/view/ozbro">Jihyong Oh</a><sup>&#8224;,<img src="./static/images/cau_aff.png" width="20"></sup>&nbsp;&nbsp;</span>
+              <span class="author-block">
+                <a target="_blank" rel="noopener noreferrer" href="https://viclab.kaist.ac.kr/professor">Munchurl Kim</a><sup>&#8224;,<img src="./static/images/kaist_aff.png" width="27"></sup>&nbsp;&nbsp;</span>
+            </div>
+
+            <div class="is-size-6 publication-authors">
+              <span class="author-block"><sup><img src="./static/images/kaist_aff.png" width="27"></sup>KAIST, South Korea</span> &nbsp;&nbsp;
+              <span class="author-block"><sup><img src="./static/images/adobe.png" width="20"></sup>Adobe Research, California</span> &nbsp;&nbsp;
+              <span class="author-block"><sup><img src="./static/images/cau_aff.png" width="20"></sup>Chung-Ang University, South Korea</span> &nbsp;&nbsp;
+              <span class="eql-cntrb"><br><sup>*</sup>Equal Contribution, <sup>&#8224;</sup>Co-Corresponding Authors</span>
+            </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                      <!-- ArXiv abstract Link -->
+                      <span class="link-block">
+                        <a href="https://arxiv.org/abs/2412.12877" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="ai ai-arxiv"></i>
+                        </span>
+                        <span>arXiv</span>
+                      </a>
+                    </span>
+
+                         <!-- Arxiv PDF link -->
+<!--                      <span class="link-block">-->
+<!--                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"-->
+<!--                        class="external-link button is-normal is-rounded is-dark">-->
+<!--                        <span class="icon">-->
+<!--                          <i class="fas fa-file-pdf"></i>-->
+<!--                        </span>-->
+<!--                        <span>Paper</span>-->
+<!--                      </a>-->
+<!--                    </span>-->
+
+                    <!-- Supplementary PDF link -->
+<!--                    <span class="link-block">-->
+<!--                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"-->
+<!--                      class="external-link button is-normal is-rounded is-dark">-->
+<!--                      <span class="icon">-->
+<!--                        <i class="fas fa-file-pdf"></i>-->
+<!--                      </span>-->
+<!--                      <span>Supplementary</span>-->
+<!--                    </a>-->
+<!--                  </span>-->
+
+                  <!-- Github link -->
+                  <span class="link-block">
+                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code (To be released)</span>
+                  </a>
+                </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Teaser video-->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+
+      <p class="content has-text-justified">
+        TL;DR: <b>PRIMEdit</b> is a zero-shot multi-instance video editing framework that uses
+        novel probability redistribution and sampling techniques to enable faithful instance edits
+        while preventing unintended changes in diverse video scenarios.
+        <br/>
+<!--        <br/>-->
+      </p>
+
+      <img src="./static/images/figure1.png"/>
+
+<!--      <video preload="auto" poster="" id="tree" autoplay controls muted loop height="100%">-->
+<!--        &lt;!&ndash; Your video here &ndash;&gt;-->
+<!--        <source src="static/videos/demo.mp4"-->
+<!--        type="video/mp4">-->
+<!--      </video>-->
+
+    </div>
+  </div>
+</section>
+<!-- End teaser video -->
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Recent AI-based video editing has enabled users to edit videos through
+            simple text prompts, significantly simplifying the editing process.
+            However, recent zero-shot video editing techniques primarily focus on global
+            or single-object edits, which can lead to unintended changes in other parts of the video.
+            When multiple objects require localized edits, existing methods face challenges,
+            such as unfaithful editing, editing leakage, and lack of suitable evaluation datasets and metrics.
+            To overcome these limitations, we propose <b>P</b>robability <b>R</b>edistribution for
+            <b>I</b>nstance-aware <b>M</b>ulti-object Video <b>Edit</b>ing (<b>PRIMEdit</b>).
+            PRIMEdit is a zero-shot framework that introduces two key modules: (i) Instance-centric
+            Probability Redistribution (IPR) to ensure precise localization and faithful editing
+            and (ii) Disentangled Multi-instance Sampling (DMS) to prevent editing leakage.
+            Additionally, we present our new MIVE Dataset for video editing featuring diverse
+            video scenarios, and introduce the Cross-Instance Accuracy (CIA) Score
+            to evaluate editing leakage in multi-instance video editing tasks.
+            Our extensive qualitative, quantitative, and user study evaluations
+            demonstrate that PRIMEdit significantly outperforms recent state-of-the-art
+            methods in terms of editing faithfulness, accuracy, and leakage prevention,
+            setting a new benchmark for multi-instance video editing.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+<!-- Method -->
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Method</h2>
+        <div class="content has-text-justified">
+          <p>
+            In this work, we present <b>PRIMEdit</b>, a zero-shot
+            multi-instance video editing framework that disentangles
+            the multi-instance video editing process, achieving faithful
+            edits and reduced attention leakage. Our PRIMEdit effectively
+            disentangles the multi-instance video editing process through
+            our (i) Instance-centric Probability Redistribution (IPR)
+            which enhances editing localization and faithfulness and
+            (ii) Disentangled Multi-instance Sampling (DMS) which
+            reduces editing leakage.
+          </p>
+
+          <p style="margin-top: 12px;">
+            Since our sampling requires that the edited objects appear
+            within their respective masks, we propose our IPR (shown below)
+            to  ensure that this condition is consistently met.
+          </p>
+
+          <img src="./static/images/ipr.png"/>
+
+          <p style="margin-top: 4px;">
+            In our DMS (shown below), we independently modify each instance using the series noise
+            sampling (yellow box), and the multiple denoised instance latents are harmonized through
+            the parallel noise sampling (blue box) preceded by the latent fusion (green box) and
+            re-inversion (purple box).
+          </p>
+
+          <img src="./static/images/dms.png"/>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Method -->
+
+<!--Dataset-->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">MIVE Dataset</h2>
+        <div class="content has-text-justified">
+          <p>
+            We also present our new MIVE Dataset specifically designed for multi-instance video editing tasks.
+            MIVE Dataset features 200 diverse videos sourced from the VIPSeg dataset.
+          </p>
+
+          <p>
+            We generated and summarized the source captions using LLaVa and Llama 3, respectively.
+            We then manually inserted tags in the source captions to establish instance-to-mask correspondence.
+            Finally, we generated the target edit captions using Llama 3.
+            We show a sample input video and source and target captions below.
+            The target instance captions are color-coded to match the color of the masks.
+          </p>
+
+          <table width="690" align="center">
+            <tr>
+              <th style="font-weight: normal; width: 300px; text-align: justify;">
+                Source Caption: <i>In a domestic setting, a person in a gray hoodie stands in front of
+                washing machine A and washing machine B against a blue wall, with a blue
+                recycling trash can to the left.</i>
+                <br/>
+                <br/>
+                Source Video:
+                <br/>
+                <video preload="auto" poster="" id="tree" autoplay controls muted loop height="100%">
+                  <source src="static/videos/qualitative_comparison/110_2wu_Z4M5RxU/110_2wu_Z4M5RxU_input.mp4"
+                  type="video/mp4">
+                </video>
+              </th>
+
+              <th style="font-weight: normal; width: 300px; text-align: justify;">
+                Target Caption: <i>In a domestic setting, an <span style="color: rgb(255, 0, 0)">alien</span>
+                stands in front of <span style="color: rgb(242, 219, 10)">oven</span>
+                and <span style="color: rgb(0, 255, 0)">yellow washing machine</span> against
+                a blue wall, with a blue recycling trash can to the left.</i>
+                <br/>
+                <br/>
+                <br/>
+                Masked Source Video:
+                <br/>
+                <video preload="auto" poster="" id="tree" autoplay controls muted loop height="100%">
+                  <source src="static/videos/qualitative_comparison/110_2wu_Z4M5RxU/110_2wu_Z4M5RxU_masked_frames.mp4"
+                  type="video/mp4">
+                </video>
+              </th>
+          </table>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Dataset -->
+
+<!-- PRIMEdit Editing Results -->
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">PRIMEdit Editing Results</h2>
+        <div class="content has-text-justified">
+
+          <td colspan="3">
+            <p style="margin-top: -3px;">
+              Hover over the videos to see the target captions and original video.
+            </p>
+          </td>
+
+          <table width="1000" align="center">
+            <tr>
+              <th style="font-size: 16px; font-weight: normal; width: 490px;" align="center">
+                Single-Instance Editing: MIVE Dataset <br/>
+                <div class="video-wrapper" style="width: 100%">
+                  <video preload="auto" class="hover-video" src="static/videos/primedit_editing_results/189_saZFIuXU5W8/189_saZFIuXU5W8_masked_frames.mp4" preload="metadata" autoplay loop muted> </video>
+                  <video preload="auto" class="default-video" src="static/videos/primedit_editing_results/189_saZFIuXU5W8/189_saZFIuXU5W8.mp4" preload="metadata" autoplay controls loop muted></video>
+                  <div class="overlay-text">
+                    <i><span style="color: rgb(0, 255, 0)">"a pembroke welsh corgi"</span></i>
+                  </div>
+                </div>
+                <br/><br/>
+                Multi-Instance Editing: Video-in-the-Wild <br/>
+                <div class="video-wrapper" style="width: 100%">
+                  <video preload="auto" class="hover-video" src="static/videos/primedit_editing_results/bunny-chick/bunny-chick_masked_frames.mp4" preload="metadata" autoplay loop muted> </video>
+                  <video preload="auto" class="default-video" src="static/videos/primedit_editing_results/bunny-chick/bunny-chick.mp4" preload="metadata" autoplay controls loop muted></video>
+                  <div class="overlay-text">
+                    <i>
+                      <span style="color: rgb(0, 255, 0)">"a white rabbit"</span>, <br/>
+                      <span style="color: rgb(242, 219, 10)">"a colorful parrot"</span>
+                    </i>
+                  </div>
+                </div>
+              </th>
+
+              <th style="font-size: 16px; font-weight: normal; width: 490px;" align="center">
+                Multi-Instance Editing: MIVE Dataset <br/>
+                <div class="video-wrapper" style="width: 100%">
+                  <video preload="auto" class="hover-video" src="static/videos/primedit_editing_results/1147_n64m2lh89vI/1147_n64m2lh89vI_masked_frames.mp4" preload="metadata" autoplay loop muted> </video>
+                  <video preload="auto" class="default-video" src="static/videos/primedit_editing_results/1147_n64m2lh89vI/1147_n64m2lh89vI.mp4" preload="metadata" autoplay controls loop muted></video>
+                  <div class="overlay-text">
+                    <i>
+                      <span style="color: rgb(255, 0, 0)">"an astronaut in blue suit"</span>, <br/>
+                      <span style="color: rgb(0, 0, 255)">"a sorceress in yellow cloak"</span>, <br/>
+                      <span style="color: rgb(0, 255, 0)">"a red metallic robot"</span>
+                    </i>
+                  </div>
+                </div>
+                <br/><br/>
+                Partial Instance Editing: Video-in-the-Wild <br/>
+                <div class="video-wrapper" style="width: 100%">
+                  <video preload="auto" class="hover-video" src="static/videos/primedit_editing_results/woman-walking/woman-walking_masked_frames.mp4" preload="metadata" autoplay loop muted> </video>
+                  <video preload="auto" class="default-video" src="static/videos/primedit_editing_results/woman-walking/woman-walking.mp4" preload="metadata" autoplay controls loop muted></video>
+                  <div class="overlay-text">
+                    <i><span style="color: rgb(255, 0, 0)">"a yellow floral dress"</span></i>
+                  </div>
+                </div>
+              </th>
+            </tr>
+          </table>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- PRIMEdit Editing Results -->
+
+<!-- Comparison -->
+<section class="section hero is-light">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Comparison</h2>
+
+          <td colspan="3">
+            <p style="margin-top: -3px;" class="has-text-justified">
+              Attention leakage examples are shown in <span style="color: rgb(0, 255, 0)">green arrows</span>
+              while unfaithful editing examples are shown in <span style="color: rgb(255, 0, 0)">red arrows</span>.
+              The target instance captions are color-coded to match the color of the masks.
+            </p>
+          </td>
+
+          <div id="results-carousel" class="carousel results-carousel">
+            <div class="item">
+              <h2 class="title is-6 has-text-justified" style="font-weight: normal;">
+                Number of instances to edit: 2
+                <br/>
+                <br/>
+                Prompt: <i>"A <span style="color: rgb(255, 0, 0)">white cat with brown spots</span>
+                sits on a white carpeted floor, engaging with its toys, against a backdrop of white curtain,
+                a <span style="color: rgb(0, 255, 0)">white wooden bench</span>, and a white
+                wall, depicting a cozy indoor environment."</i>
+              </h2>
+
+              <table width="690" align="center">
+                <tbody>
+                  <tr>
+                    <th style="font-size: 14px; font-weight: normal;" align="center">Input</th>
+                    <th style="font-size: 14px; font-weight: normal;" align="center">Masked Input</th>
+                    <th style="font-size: 14px; font-weight: normal;" align="center">PRIMEdit (Ours)</th>
+                    <th style="font-size: 14px; font-weight: normal;" align="center">ControlVideo</th>
+                    <th style="font-size: 14px; font-weight: normal;" align="center">FLATTEN</th>
+                  </tr>
+
+                  <tr>
+                    <th>
+                      <video poster="" id="video31" autoplay controls muted loop width="138">
+                        <source src="static/videos/qualitative_comparison/189_saZFIuXU5W8/189_saZFIuXU5W8_input.mp4"
+                        type="video/mp4">
+                      </video>
+                    </th>
+
+                    <th>
+                      <video poster="" id="video32" autoplay controls muted loop width="138">
+                        <source src="static/videos/qualitative_comparison/189_saZFIuXU5W8/189_saZFIuXU5W8_masked_frames.mp4"
+                        type="video/mp4">
+                      </video>
+                    </th>
+
+                    <th>
+                      <video poster="" id="video33" autoplay controls muted loop width="138">
+                        <source src="static/videos/qualitative_comparison/189_saZFIuXU5W8/189_saZFIuXU5W8_primedit.mp4"
+                        type="video/mp4">
+                      </video>
+                    </th>
+
+                    <th>
+                      <video poster="" id="video34" autoplay controls muted loop width="138">
+                        <source src="static/videos/qualitative_comparison/189_saZFIuXU5W8/189_saZFIuXU5W8_controlvideo.mp4"
+                        type="video/mp4">
+                      </video>
+                    </th>
+
+                    <th>
+                      <video poster="" id="video35" autoplay controls muted loop width="138">
+                        <source src="static/videos/qualitative_comparison/189_saZFIuXU5W8/189_saZFIuXU5W8_flatten.mp4"
+                        type="video/mp4">
+                      </video>
+                    </th>
+                  </tr>
+
+                  <tr>
+                    <th style="font-size: 14px; font-weight: normal;" align="center">FreSCo</th>
+                    <th style="font-size: 14px; font-weight: normal;" align="center">TokenFlow</th>
+                    <th style="font-size: 14px; font-weight: normal;" align="center">RAVE</th>
+                    <th style="font-size: 14px; font-weight: normal;" align="center">Ground-A-Video</th>
+                    <th style="font-size: 14px; font-weight: normal;" align="center">VideoGrain</th>
+                  </tr>
+
+                  <tr>
+                    <th>
+                      <video poster="" id="video36" autoplay controls muted loop width="138">
+                        <source src="static/videos/qualitative_comparison/189_saZFIuXU5W8/189_saZFIuXU5W8_fresco.mp4"
+                        type="video/mp4">
+                      </video>
+                    </th>
+
+                    <th>
+                      <video poster="" id="video37" autoplay controls muted loop width="138">
+                        <source src="static/videos/qualitative_comparison/189_saZFIuXU5W8/189_saZFIuXU5W8_tokenflow.mp4"
+                        type="video/mp4">
+                      </video>
+                    </th>
+
+                    <th>
+                      <video poster="" id="video38" autoplay controls muted loop width="138">
+                        <source src="static/videos/qualitative_comparison/189_saZFIuXU5W8/189_saZFIuXU5W8_rave.mp4"
+                        type="video/mp4">
+                      </video>
+                    </th>
+
+                    <th>
+                      <video poster="" id="video39" autoplay controls muted loop width="138">
+                        <source src="static/videos/qualitative_comparison/189_saZFIuXU5W8/189_saZFIuXU5W8_ground-a-video.mp4"
+                        type="video/mp4">
+                      </video>
+                    </th>
+
+                    <th>
+                      <video poster="" id="video40" autoplay controls muted loop width="138">
+                        <source src="static/videos/qualitative_comparison/189_saZFIuXU5W8/189_saZFIuXU5W8_videograin.mp4"
+                        type="video/mp4">
+                      </video>
+                    </th>
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+
+            <div class="item">
+              <h2 class="title is-6 has-text-justified" style="font-weight: normal;">
+                Number of instances to edit: 3
+                <br/>
+                <br/>
+                Prompt: <i>"In a domestic setting, an <span style="color: rgb(255, 0, 0);">alien</span>
+                stands in front of <span style="color: rgb(242, 219, 10);">oven</span> and
+                <span style="color: rgb(0, 255, 0)">yellow washing machine</span>
+                against a blue wall, with a blue recycling trash can to the left."</i>
+              </h2>
+
+              <table width="690" align="center">
+                <tbody>
+                  <tr>
+                    <th style="font-size: 14px; font-weight: normal;" align="center">Input</th>
+                    <th style="font-size: 14px; font-weight: normal;" align="center">Masked Input</th>
+                    <th style="font-size: 14px; font-weight: normal;" align="center">PRIMEdit (Ours)</th>
+                    <th style="font-size: 14px; font-weight: normal;" align="center">ControlVideo</th>
+                    <th style="font-size: 14px; font-weight: normal;" align="center">FLATTEN</th>
+                  </tr>
+
+                  <tr>
+                    <th>
+                      <video poster="" id="video1" autoplay controls muted loop width="138">
+                        <source src="static/videos/qualitative_comparison/110_2wu_Z4M5RxU/110_2wu_Z4M5RxU_input.mp4"
+                        type="video/mp4">
+                      </video>
+                    </th>
+
+                    <th>
+                      <video poster="" id="video2" autoplay controls muted loop width="138">
+                        <source src="static/videos/qualitative_comparison/110_2wu_Z4M5RxU/110_2wu_Z4M5RxU_masked_frames.mp4"
+                        type="video/mp4">
+                      </video>
+                    </th>
+
+                    <th>
+                      <video poster="" id="video3" autoplay controls muted loop width="138">
+                        <source src="static/videos/qualitative_comparison/110_2wu_Z4M5RxU/110_2wu_Z4M5RxU_primedit.mp4"
+                        type="video/mp4">
+                      </video>
+                    </th>
+
+                    <th>
+                      <video poster="" id="video4" autoplay controls muted loop width="138">
+                        <source src="static/videos/qualitative_comparison/110_2wu_Z4M5RxU/110_2wu_Z4M5RxU_controlvideo.mp4"
+                        type="video/mp4">
+                      </video>
+                    </th>
+
+                    <th>
+                      <video poster="" id="video5" autoplay controls muted loop width="138">
+                        <source src="static/videos/qualitative_comparison/110_2wu_Z4M5RxU/110_2wu_Z4M5RxU_flatten.mp4"
+                        type="video/mp4">
+                      </video>
+                    </th>
+                  </tr>
+
+                  <tr>
+                    <th style="font-size: 14px; font-weight: normal;" align="center">FreSCo</th>
+                    <th style="font-size: 14px; font-weight: normal;" align="center">TokenFlow</th>
+                    <th style="font-size: 14px; font-weight: normal;" align="center">RAVE</th>
+                    <th style="font-size: 14px; font-weight: normal;" align="center">Ground-A-Video</th>
+                    <th style="font-size: 14px; font-weight: normal;" align="center">VideoGrain</th>
+                  </tr>
+
+                  <tr>
+                    <th>
+                      <video poster="" id="video6" autoplay controls muted loop width="138">
+                        <source src="static/videos/qualitative_comparison/110_2wu_Z4M5RxU/110_2wu_Z4M5RxU_fresco.mp4"
+                        type="video/mp4">
+                      </video>
+                    </th>
+
+                    <th>
+                      <video poster="" id="video7" autoplay controls muted loop width="138">
+                        <source src="static/videos/qualitative_comparison/110_2wu_Z4M5RxU/110_2wu_Z4M5RxU_tokenflow.mp4"
+                        type="video/mp4">
+                      </video>
+                    </th>
+
+                    <th>
+                      <video poster="" id="video8" autoplay controls muted loop width="138">
+                        <source src="static/videos/qualitative_comparison/110_2wu_Z4M5RxU/110_2wu_Z4M5RxU_rave.mp4"
+                        type="video/mp4">
+                      </video>
+                    </th>
+
+                    <th>
+                      <video poster="" id="video9" autoplay controls muted loop width="138">
+                        <source src="static/videos/qualitative_comparison/110_2wu_Z4M5RxU/110_2wu_Z4M5RxU_ground-a-video.mp4"
+                        type="video/mp4">
+                      </video>
+                    </th>
+
+                    <th>
+                      <video poster="" id="video10" autoplay controls muted loop width="138">
+                        <source src="static/videos/qualitative_comparison/110_2wu_Z4M5RxU/110_2wu_Z4M5RxU_videograin.mp4"
+                        type="video/mp4">
+                      </video>
+                    </th>
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+
+            <div class="item">
+              <h2 class="title is-6 has-text-justified" style="font-weight: normal;">
+                Number of instances to edit: 4
+                <br/>
+                <br/>
+                Prompt: <i>"A <span style="color: rgb(242, 219, 10)">woman in a red dress</span> and a
+                <span style="color: rgb(255, 0, 0)">man in gray sweatpants</span> stand in a room with a white
+                wall and cabinets containing a <span style="color: rgb(0, 0, 255)">top terrarium</span>
+                and a <span style="color: rgb(0, 255, 0)">bottom planter</span>."</i>
+              </h2>
+
+              <table width="690" align="center">
+                <tbody>
+                  <tr>
+                    <th style="font-size: 14px; font-weight: normal;" align="center">Input</th>
+                    <th style="font-size: 14px; font-weight: normal;" align="center">Masked Input</th>
+                    <th style="font-size: 14px; font-weight: normal;" align="center">PRIMEdit (Ours)</th>
+                    <th style="font-size: 14px; font-weight: normal;" align="center">ControlVideo</th>
+                    <th style="font-size: 14px; font-weight: normal;" align="center">FLATTEN</th>
+                  </tr>
+
+                  <tr>
+                    <th>
+                      <video poster="" id="video11" autoplay controls muted loop width="138">
+                        <source src="static/videos/qualitative_comparison/941_fmJ14LvRZIE/941_fmJ14LvRZIE_input.mp4"
+                        type="video/mp4">
+                      </video>
+                    </th>
+
+                    <th>
+                      <video poster="" id="video12" autoplay controls muted loop width="138">
+                        <source src="static/videos/qualitative_comparison/941_fmJ14LvRZIE/941_fmJ14LvRZIE_masked_frames.mp4"
+                        type="video/mp4">
+                      </video>
+                    </th>
+
+                    <th>
+                      <video poster="" id="video13" autoplay controls muted loop width="138">
+                        <source src="static/videos/qualitative_comparison/941_fmJ14LvRZIE/941_fmJ14LvRZIE_primedit.mp4"
+                        type="video/mp4">
+                      </video>
+                    </th>
+
+                    <th>
+                      <video poster="" id="video14" autoplay controls muted loop width="138">
+                        <source src="static/videos/qualitative_comparison/941_fmJ14LvRZIE/941_fmJ14LvRZIE_controlvideo.mp4"
+                        type="video/mp4">
+                      </video>
+                    </th>
+
+                    <th>
+                      <video poster="" id="video15" autoplay controls muted loop width="138">
+                        <source src="static/videos/qualitative_comparison/941_fmJ14LvRZIE/941_fmJ14LvRZIE_flatten.mp4"
+                        type="video/mp4">
+                      </video>
+                    </th>
+                  </tr>
+
+                  <tr>
+                    <th style="font-size: 14px; font-weight: normal;" align="center">FreSCo</th>
+                    <th style="font-size: 14px; font-weight: normal;" align="center">TokenFlow</th>
+                    <th style="font-size: 14px; font-weight: normal;" align="center">RAVE</th>
+                    <th style="font-size: 14px; font-weight: normal;" align="center">Ground-A-Video</th>
+                    <th style="font-size: 14px; font-weight: normal;" align="center">VideoGrain</th>
+                  </tr>
+
+                  <tr>
+                    <th>
+                      <video poster="" id="video16" autoplay controls muted loop width="138">
+                        <source src="static/videos/qualitative_comparison/941_fmJ14LvRZIE/941_fmJ14LvRZIE_fresco.mp4"
+                        type="video/mp4">
+                      </video>
+                    </th>
+
+                    <th>
+                      <video poster="" id="video17" autoplay controls muted loop width="138">
+                        <source src="static/videos/qualitative_comparison/941_fmJ14LvRZIE/941_fmJ14LvRZIE_tokenflow.mp4"
+                        type="video/mp4">
+                      </video>
+                    </th>
+
+                    <th>
+                      <video poster="" id="video18" autoplay controls muted loop width="138">
+                        <source src="static/videos/qualitative_comparison/941_fmJ14LvRZIE/941_fmJ14LvRZIE_rave.mp4"
+                        type="video/mp4">
+                      </video>
+                    </th>
+
+                    <th>
+                      <video poster="" id="video19" autoplay controls muted loop width="138">
+                        <source src="static/videos/qualitative_comparison/941_fmJ14LvRZIE/941_fmJ14LvRZIE_ground-a-video.mp4"
+                        type="video/mp4">
+                      </video>
+                    </th>
+
+                    <th>
+                      <video poster="" id="video20" autoplay controls muted loop width="138">
+                        <source src="static/videos/qualitative_comparison/941_fmJ14LvRZIE/941_fmJ14LvRZIE_videograin.mp4"
+                        type="video/mp4">
+                      </video>
+                    </th>
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+
+            <div class="item">
+              <h2 class="title is-6 has-text-justified" style="font-weight: normal;">
+                Number of instances to edit: 6
+                <br/>
+                <br/>
+                Prompt: <i>"A <span style="color: rgb(255, 0, 0)">soldier in a desert camouflage</span>
+                organizes a <span style="color: rgb(0, 255, 0)">military duffel bag</span> on top of
+                a <span style="color: rgb(0, 0, 255)">outdoor picnic table</span>, with a
+                <span style="color: rgb(242, 219, 10)">messenger bag</span> and kevlar on the left side,
+                and a <span style="color: rgb(255, 0, 255)">outdoor utility pouch</span> and a
+                <span style="color: rgb(0, 255, 255)">hiking expedition pack</span> on the right side. The scenery features a backdrop
+                of mountainous terrain, sandy ground, and a clear sky, suggesting an outdoor setting
+                for inspection activities."</i>
+              </h2>
+
+              <table width="690" align="center">
+                <tbody>
+                  <tr>
+                    <th style="font-size: 14px; font-weight: normal;" align="center">Input</th>
+                    <th style="font-size: 14px; font-weight: normal;" align="center">Masked Input</th>
+                    <th style="font-size: 14px; font-weight: normal;" align="center">PRIMEdit (Ours)</th>
+                    <th style="font-size: 14px; font-weight: normal;" align="center">ControlVideo</th>
+                    <th style="font-size: 14px; font-weight: normal;" align="center">FLATTEN</th>
+                  </tr>
+
+                  <tr>
+                    <th>
+                      <video poster="" id="video41" autoplay controls muted loop width="138">
+                        <source src="static/videos/qualitative_comparison/223_YsIPo670N2A/223_YsIPo670N2A_input.mp4"
+                        type="video/mp4">
+                      </video>
+                    </th>
+
+                    <th>
+                      <video poster="" id="video42" autoplay controls muted loop width="138">
+                        <source src="static/videos/qualitative_comparison/223_YsIPo670N2A/223_YsIPo670N2A_masked_frames.mp4"
+                        type="video/mp4">
+                      </video>
+                    </th>
+
+                    <th>
+                      <video poster="" id="video43" autoplay controls muted loop width="138">
+                        <source src="static/videos/qualitative_comparison/223_YsIPo670N2A/223_YsIPo670N2A_primedit.mp4"
+                        type="video/mp4">
+                      </video>
+                    </th>
+
+                    <th>
+                      <video poster="" id="video44" autoplay controls muted loop width="138">
+                        <source src="static/videos/qualitative_comparison/223_YsIPo670N2A/223_YsIPo670N2A_controlvideo.mp4"
+                        type="video/mp4">
+                      </video>
+                    </th>
+
+                    <th>
+                      <video poster="" id="video45" autoplay controls muted loop width="138">
+                        <source src="static/videos/qualitative_comparison/223_YsIPo670N2A/223_YsIPo670N2A_flatten.mp4"
+                        type="video/mp4">
+                      </video>
+                    </th>
+                  </tr>
+
+                  <tr>
+                    <th style="font-size: 14px; font-weight: normal;" align="center">FreSCo</th>
+                    <th style="font-size: 14px; font-weight: normal;" align="center">TokenFlow</th>
+                    <th style="font-size: 14px; font-weight: normal;" align="center">RAVE</th>
+                    <th style="font-size: 14px; font-weight: normal;" align="center">Ground-A-Video</th>
+                    <th style="font-size: 14px; font-weight: normal;" align="center">VideoGrain</th>
+                  </tr>
+
+                  <tr>
+                    <th>
+                      <video poster="" id="video46" autoplay controls muted loop width="138">
+                        <source src="static/videos/qualitative_comparison/223_YsIPo670N2A/223_YsIPo670N2A_fresco.mp4"
+                        type="video/mp4">
+                      </video>
+                    </th>
+
+                    <th>
+                      <video poster="" id="video47" autoplay controls muted loop width="138">
+                        <source src="static/videos/qualitative_comparison/223_YsIPo670N2A/223_YsIPo670N2A_tokenflow.mp4"
+                        type="video/mp4">
+                      </video>
+                    </th>
+
+                    <th>
+                      <video poster="" id="video48" autoplay controls muted loop width="138">
+                        <source src="static/videos/qualitative_comparison/223_YsIPo670N2A/223_YsIPo670N2A_rave.mp4"
+                        type="video/mp4">
+                      </video>
+                    </th>
+
+                    <th>
+                      <video poster="" id="video49" autoplay controls muted loop width="138">
+                        <source src="static/videos/qualitative_comparison/223_YsIPo670N2A/223_YsIPo670N2A_ground-a-video.mp4"
+                        type="video/mp4">
+                      </video>
+                    </th>
+
+                    <th>
+                      <video poster="" id="video50" autoplay controls muted loop width="138">
+                        <source src="static/videos/qualitative_comparison/223_YsIPo670N2A/223_YsIPo670N2A_videograin.mp4"
+                        type="video/mp4">
+                      </video>
+                    </th>
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+
+            <div class="item">
+              <h2 class="title is-6 has-text-justified" style="font-weight: normal;">
+                Number of instances to edit: 7
+                <br/>
+                <br/>
+                Prompt: <i>"A <span style="color: rgb(255, 0, 0)">robot</span> works at a
+                <span style="color: rgb(0, 0, 255)">glass table</span> with lab items, holding a pink test tube
+                near a tissue box, <span style="color: rgb(0, 255, 0)">metal beaker with rusty finish</span>,
+                and an <span style="color: rgb(242, 219, 10)">Erlenmeyer flask with metallic finish</span>.
+                A storage rack sits on top of a <span style="color: rgb(256, 128, 0)">wooden table with carvings</span>,
+                near <span style="color: rgb(0, 255, 255)">conference table</span>, a
+                <span style="color: rgb(255, 0, 255)">window with metal frame and blinds</span>
+                and a wall."</i>
+              </h2>
+
+              <table width="690" align="center">
+                <tbody>
+                  <tr>
+                    <th style="font-size: 14px; font-weight: normal;" align="center">Input</th>
+                    <th style="font-size: 14px; font-weight: normal;" align="center">Masked Input</th>
+                    <th style="font-size: 14px; font-weight: normal;" align="center">PRIMEdit (Ours)</th>
+                    <th style="font-size: 14px; font-weight: normal;" align="center">ControlVideo</th>
+                    <th style="font-size: 14px; font-weight: normal;" align="center">FLATTEN</th>
+                  </tr>
+
+                  <tr>
+                    <th>
+                      <video poster="" id="video21" autoplay controls muted loop width="138">
+                        <source src="static/videos/qualitative_comparison/1145_lW-41v9HYm0/1145_lW-41v9HYm0_input.mp4"
+                        type="video/mp4">
+                      </video>
+                    </th>
+
+                    <th>
+                      <video poster="" id="video22" autoplay controls muted loop width="138">
+                        <source src="static/videos/qualitative_comparison/1145_lW-41v9HYm0/1145_lW-41v9HYm0_masked_frames.mp4"
+                        type="video/mp4">
+                      </video>
+                    </th>
+
+                    <th>
+                      <video poster="" id="video23" autoplay controls muted loop width="138">
+                        <source src="static/videos/qualitative_comparison/1145_lW-41v9HYm0/1145_lW-41v9HYm0_primedit.mp4"
+                        type="video/mp4">
+                      </video>
+                    </th>
+
+                    <th>
+                      <video poster="" id="video24" autoplay controls muted loop width="138">
+                        <source src="static/videos/qualitative_comparison/1145_lW-41v9HYm0/1145_lW-41v9HYm0_controlvideo.mp4"
+                        type="video/mp4">
+                      </video>
+                    </th>
+
+                    <th>
+                      <video poster="" id="video25" autoplay controls muted loop width="138">
+                        <source src="static/videos/qualitative_comparison/1145_lW-41v9HYm0/1145_lW-41v9HYm0_flatten.mp4"
+                        type="video/mp4">
+                      </video>
+                    </th>
+                  </tr>
+
+                  <tr>
+                    <th style="font-size: 14px; font-weight: normal;" align="center">FreSCo</th>
+                    <th style="font-size: 14px; font-weight: normal;" align="center">TokenFlow</th>
+                    <th style="font-size: 14px; font-weight: normal;" align="center">RAVE</th>
+                    <th style="font-size: 14px; font-weight: normal;" align="center">Ground-A-Video</th>
+                    <th style="font-size: 14px; font-weight: normal;" align="center">VideoGrain</th>
+                  </tr>
+
+                  <tr>
+                    <th>
+                      <video poster="" id="video26" autoplay controls muted loop width="138">
+                        <source src="static/videos/qualitative_comparison/1145_lW-41v9HYm0/1145_lW-41v9HYm0_fresco.mp4"
+                        type="video/mp4">
+                      </video>
+                    </th>
+
+                    <th>
+                      <video poster="" id="video27" autoplay controls muted loop width="138">
+                        <source src="static/videos/qualitative_comparison/1145_lW-41v9HYm0/1145_lW-41v9HYm0_tokenflow.mp4"
+                        type="video/mp4">
+                      </video>
+                    </th>
+
+                    <th>
+                      <video poster="" id="video28" autoplay controls muted loop width="138">
+                        <source src="static/videos/qualitative_comparison/1145_lW-41v9HYm0/1145_lW-41v9HYm0_rave.mp4"
+                        type="video/mp4">
+                      </video>
+                    </th>
+
+                    <th>
+                      <video poster="" id="video29" autoplay controls muted loop width="138">
+                        <source src="static/videos/qualitative_comparison/1145_lW-41v9HYm0/1145_lW-41v9HYm0_ground-a-video.mp4"
+                        type="video/mp4">
+                      </video>
+                    </th>
+
+                    <th>
+                      <video poster="" id="video30" autoplay controls muted loop width="138">
+                        <source src="static/videos/qualitative_comparison/1145_lW-41v9HYm0/1145_lW-41v9HYm0_videograin.mp4"
+                        type="video/mp4">
+                      </video>
+                    </th>
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Comparison -->
+
+<!--BibTex citation-->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@misc{teodoro2025primedit,
+      title={PRIMEdit: Probability Redistribution for Instance-aware Multi-object Video Editing with Benchmark Dataset},
+      author={Samuel Teodoro and Agus Gunawan and Soo Ye Kim and Jihyong Oh and Munchurl Kim},
+      year={2025},
+      eprint={2412.12877},
+      archivePrefix={arXiv},
+}</code></pre>
+    </div>
+</section>
+<!--End BibTex citation-->
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+
+<!--      <a href="https://mapmyvisitors.com/web/1bx6b"  title="Visit tracker"><img src="https://mapmyvisitors.com/map.png?d=qBce1aYVqksuAXyLho4tlQp5WTYJK40bYNYtaBWxIOc&cl=ffffff" /></a>-->
+
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+<!-- End of Statcounter Code -->
+
+  </body>
+  </html>
